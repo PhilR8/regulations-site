@@ -65,6 +65,7 @@ class ReaderView(TableOfContentsMixin, SidebarContextMixin, CitationContextMixin
             raise Http404
         return versions['versions']
 
+
 class PartReaderView(ReaderView):
     def get_view_links(self, context, toc):
         part = context['part']
