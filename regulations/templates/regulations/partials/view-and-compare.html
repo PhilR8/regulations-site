@@ -6,7 +6,12 @@
             <select class="ds-c-field" name="view-options" id="view-options">
                 <option value="">Select Date</option>
                 {% for version in versions %}
-                    <option data-url="{% url 'reader_view' citation.0 citation.1 version.version %}">{{version.by_date}}</option>
+                    {% if citation.1 %}
+                        <option data-url="{% url 'reader_view' citation.0 citation.1 version.version %}">{{version.by_date}}</option>
+                    {% else %}
+                        <option data-url="{% url 'reader_view' citation.0 version.version %}">{{version.by_date}}</option>
+                    {% endif %}
+
                 {% endfor %}
             </select>
         </span>
