@@ -16,9 +16,13 @@
             </select>
         </span>
         <span class="close-button">
-            <button tabindex="0" data-set-state="hide" data-state-name="view">
+            {% if citation.1 %}
+            <a href="{% url 'reader_view' citation.0 citation.1 versions.0.version  %}">
+            {% else %}
+            <a href="{% url 'reader_view' citation.0 versions.0.version  %}">
+            {% endif %}
                 <i class="fa fa-times"></i>
-            </button>
+            </a>
         </span>
     </div>
 </div>

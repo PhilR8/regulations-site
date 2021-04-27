@@ -33,17 +33,9 @@
         right: 20px;
         cursor: pointer;
         height: auto;
-    }
 
-    button {
-        border: none;
-        background: none;
-        color: $reverse_text_color;
-        cursor: pointer;
-        outline: none;
-
-        &:hover {
-            color: $reverse_link_hover;
+        a {
+          color: $reverse_text_color;
         }
     }
 }

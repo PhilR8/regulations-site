@@ -13765,14 +13765,7 @@ html {
   cursor: pointer;
   height: auto;
 }
-.view-and-compare button {
-  border: none;
-  background: none;
-  color: #fff;
-  cursor: pointer;
-  outline: none;
-}
-.view-and-compare button:hover {
+.view-and-compare .close-button a {
   color: #fff;
 }
 
