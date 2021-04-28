@@ -1,10 +1,8 @@
 {% extends "regulations/base.html" %}
 {% load static %}
 
-{% block pre_header %}
-{% endblock %}
-
 {% block body %}
+    {% include "regulations/partials/view-and-compare.html" %}
     <div class="flexbox">
         <aside class="left-sidebar" data-state="expanded" data-state-name="left-sidebar">
             <div class="toc-controls">
@@ -33,4 +31,5 @@
 
 {% block post_footer %}
     <script src="{% static '/js/main.js' %}"></script>
+    <script src="{% static '/js/go-to-version.js' %}"></script>
 {% endblock %}
