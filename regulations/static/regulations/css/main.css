@@ -14394,6 +14394,9 @@ header a:visited {
 header a:hover {
   color: #046791;
 }
+header .flexbox {
+  align-items: center;
+}
 header .site-title {
   display: inline-block;
   border-right: 1px solid #D6D7D9;
@@ -14404,6 +14407,8 @@ header .site-title {
 }
 header .reg-title {
   display: inline-block;
+  flex: 2;
+  padding-right: 16px;
 }
 
 .search-header {
