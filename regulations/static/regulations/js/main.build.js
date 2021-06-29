@@ -31,7 +31,7 @@
         type: String,
         required: true,
       },
-      effective_on: String,
+      publication_date: String,
       document_number: {
         type: String,
         required: true,
@@ -58,7 +58,7 @@
         const options = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' };
         const format = new Intl.DateTimeFormat("en-US", options);
         return format.format(date);
-      } 
+      }
     }
   };
 
@@ -151,9 +151,9 @@
           _vm._v(_vm._s(_vm.expandedType))
         ]),
         _vm._v(" "),
-        _vm.effective_on
+        _vm.publication_date
           ? _c("span", { staticClass: "related-rule-date" }, [
-              _vm._v(_vm._s(_vm._f("formatDate")(_vm.effective_on)))
+              _vm._v(_vm._s(_vm._f("formatDate")(_vm.publication_date)))
             ])
           : _vm._e(),
         _c("span", { staticClass: "related-rule-citation" }, [
@@ -248,7 +248,7 @@
             title: rule.title,
             type: rule.type,
             citation: rule.citation,
-            effective_on: rule.effective_on,
+            publication_date: rule.publication_date,
             document_number: rule.document_number,
             html_url: rule.html_url
           }
@@ -320,10 +320,7 @@
           async fetch_rules(title, part) {
               const response = await fetch(`https://www.federalregister.gov/api/v1/documents.json?fields[]=type&fields[]=abstract&fields[]=citation&fields[]=correction_of&fields[]=dates&fields[]=docket_id&fields[]=docket_ids&fields[]=document_number&fields[]=effective_on&fields[]=html_url&fields[]=publication_date&fields[]=regulation_id_number_info&fields[]=regulation_id_numbers&fields[]=title&per_page=20&order=newest&conditions[type][]=RULE&conditions[cfr][title]=${title}&conditions[cfr][part]=${part}`);
               const rules = await response.json();
-              const by_effective_on = (a,b) => {
-                return new Date(b.effective_on) - new Date(a.effective_on);
-              };
-              return rules.results.sort(by_effective_on);
+              return rules.results;
           }
       }
   };
