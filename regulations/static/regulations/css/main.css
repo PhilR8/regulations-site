@@ -14369,6 +14369,9 @@ html {
   margin: -105px 0 0;
 }
 
+header {
+  height: calc($header-height - $spacer-4);
+}
 header.sticky {
   position: fixed;
   top: 0;
@@ -14386,7 +14389,7 @@ header.sticky + .content {
   padding-top: 105px;
 }
 header.sticky + .content aside {
-  top: 100px;
+  top: 105px;
 }
 header a {
   text-decoration: none;
@@ -14413,6 +14416,15 @@ header .reg-title {
   display: inline-block;
   flex: 2;
   padding-right: 16px;
+}
+header .reg-title a {
+  max-width: 53rem;
+  display: inline-block;
+}
+@media (max-width: 1290px) {
+  header .header-part-name {
+    display: none;
+  }
 }
 
 .search-header {

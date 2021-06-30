@@ -6,6 +6,7 @@
 @import "../application_settings";
 
 header {
+	height: calc($header-height - $spacer-4);
 
 	// Sticky Header and Content Adjustments
 
@@ -27,7 +28,7 @@ header {
 			padding-top: $header-height; 	
 
 		  	aside {
-				top: 100px;
+				top: $header-height;
 			}
 		}
 
@@ -63,6 +64,18 @@ header {
 		display: inline-block;
 		flex: 2;
 		padding-right: $spacer-2;
+
+		a {
+			max-width: $text-max-width;
+			display: inline-block;
+		}
+	}
+
+	.header-part-name {
+
+		@include custom-max(1290) {
+			display: none;
+		}
 	}
 }
 
