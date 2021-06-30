@@ -23,7 +23,7 @@ header {
 			margin-right: 64px;
 		}
 
-		+ .content {
+		+ .content {						// Moves content/aside down so they're not covered by the sticky header 
 			padding-top: $header-height; 	
 
 		  	aside {

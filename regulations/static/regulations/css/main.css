@@ -15357,14 +15357,8 @@ ul.table-of-contents li {
   color: #5B616B;
   margin: 24px 0;
 }
-ul.table-of-contents li h3 {
-  margin-bottom: 0;
-  display: initial;
-}
-ul.table-of-contents li p {
-  margin-top: 0;
-  font-size: 14px;
-  color: #212121;
+ul.table-of-contents li .subpart-name {
+  font-weight: normal;
 }
 ul.table-of-contents ul {
   margin-left: 0;
@@ -15382,10 +15376,11 @@ ul.table-of-contents a {
 }
 ul.table-of-contents .menu-section {
   text-decoration: none;
-  font-size: 14px;
+  font-size: 16px;
 }
 ul.table-of-contents .toc-section-number {
   font-weight: bold;
+  min-width: 70px;
 }
 ul.table-of-contents .toc-section-name {
   flex: 1;
