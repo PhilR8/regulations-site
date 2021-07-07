@@ -14014,6 +14014,22 @@ html {
 .search-page aside.left-sidebar[data-state=expanded] + main {
   width: calc(100% - 800px);
 }
+.search-page aside.left-sidebar p {
+  margin: 0;
+}
+.search-page aside.left-sidebar .search-sidebar-element {
+  padding: 8px 0;
+  margin: 0 16px;
+}
+.search-page aside.left-sidebar h2 {
+  margin: 8px 8px 8px 16px;
+}
+.search-page aside.left-sidebar h3 {
+  margin: 8px 8px 8px 16px;
+}
+.search-page aside.left-sidebar h4 {
+  margin: 8px 8px 8px 16px;
+}
 .search-page .container {
   margin: 0;
 }
