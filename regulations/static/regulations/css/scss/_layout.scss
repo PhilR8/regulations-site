@@ -49,6 +49,10 @@ body {
 }
 
 .match-sides {
+    &[data-state="collapsed"] {
+        flex: 0 0 $collapsed-sidebar-width;
+    }
+
     @include screen-md {
         flex: 0 0 275px;
     }
