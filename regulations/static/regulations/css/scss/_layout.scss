@@ -49,10 +49,6 @@ body {
 }
 
 .match-sides {
-    //display: table-cell;
-    //width: 260px;
-    flex: 0 0 275px;
-
     @include screen-md {
         flex: 0 0 275px;
     }
@@ -70,25 +66,25 @@ body {
     }
 }
 
-.match-middle {
+//.match-middle {
     //display: table-cell;
     //width: calc(100% - 520px);
     //padding: 0 $spacer-4;
 
-    @include screen-lg {
+    //@include screen-lg {
         //width: calc(100% - 600px);
-    }
+    //}
 
-    @include screen-xl {
+    //@include screen-xl {
         //width: calc(100% - 700px);
         //padding: 0 $spacer-4;
-    }
+    //}
 
-    @include screen-3xl {
+    //@include screen-3xl {
         //width: calc(100% - 1000px);
         //padding: 0 $spacer-6;
-    }
-}
+    //}
+//}
 
 main {
     display: table-cell;
