@@ -14454,7 +14454,7 @@ aside.left-sidebar {
   overflow-y: scroll;
   position: sticky;
   top: 0;
-  transition: width 0.25s ease-out;
+  transition: flex-basis 0.25s ease-out;
 }
 aside.left-sidebar[data-state=collapsed] {
   width: 1em;
