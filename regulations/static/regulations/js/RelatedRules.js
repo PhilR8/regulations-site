@@ -26,7 +26,7 @@ var script$2 = {
       type: String,
       required: true,
     },
-    effective_on: String,
+    publication_date: String,
     document_number: {
       type: String,
       required: true,
@@ -53,7 +53,7 @@ var script$2 = {
       const options = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' };
       const format = new Intl.DateTimeFormat("en-US", options);
       return format.format(date);
-    } 
+    }
   }
 };
 
@@ -149,9 +149,9 @@ var __vue_render__$2 = function() {
           _vm._v(_vm._s(_vm.expandedType))
         ]),
         _vm._v(" "),
-        _vm.effective_on
+        _vm.publication_date
           ? _c("span", { staticClass: "recent-date" }, [
-              _vm._v(_vm._s(_vm._f("formatDate")(_vm.effective_on)))
+              _vm._v(_vm._s(_vm._f("formatDate")(_vm.publication_date)))
             ])
           : _vm._e(),
         _vm._v(" | "),
@@ -239,7 +239,7 @@ var __vue_render__$1 = function() {
           title: rule.title,
           type: rule.type,
           citation: rule.citation,
-          effective_on: rule.effective_on,
+          publication_date: rule.publication_date,
           document_number: rule.document_number,
           html_url: rule.html_url
         }
@@ -298,7 +298,7 @@ var script = {
         limit: {
             type: Number,
             default: 3,
-	},
+        },
     },
 
     data() {

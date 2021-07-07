@@ -14451,7 +14451,7 @@ aside.left-sidebar {
   overflow-y: scroll;
   position: sticky;
   top: 0;
-  transition: all 0.25s ease-out;
+  transition: width 0.25s ease-out;
 }
 aside.left-sidebar[data-state=collapsed] {
   width: 1em;
@@ -14708,6 +14708,9 @@ html {
 aside.right-sidebar {
   padding-top: 40px;
   max-width: 400px;
+  position: sticky;
+  height: 100vh;
+  overflow-y: scroll;
 }
 aside.right-sidebar h2 {
   font-size: 21px;

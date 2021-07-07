@@ -8,8 +8,8 @@
 
     <div class="reg-title">
         {% if part %}
-        <a href="{% url 'regulation_landing_view' reg_part %}">
-            <strong>42 CFR Part {{ part }}</strong>
+        <a href="{% url 'regulation_landing_view' title reg_part %}">
+            <strong>{{title}} CFR Part {{ part }}</strong>
             <span class="header-part-name">
             {% if part_label %}
              - {{ part_label }}
