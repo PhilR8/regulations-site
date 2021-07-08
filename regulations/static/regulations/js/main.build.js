@@ -318,10 +318,7 @@
           async fetch_rules(title, part, limit) {
               const response = await fetch(`https://www.federalregister.gov/api/v1/documents.json?fields[]=type&fields[]=abstract&fields[]=citation&fields[]=correction_of&fields[]=dates&fields[]=docket_id&fields[]=docket_ids&fields[]=document_number&fields[]=effective_on&fields[]=html_url&fields[]=publication_date&fields[]=regulation_id_number_info&fields[]=regulation_id_numbers&fields[]=title&order=newest&conditions[type][]=RULE&conditions[cfr][title]=${title}&conditions[cfr][part]=${part}&per_page=${limit}`);
               const rules = await response.json();
-              const by_effective_on = (a,b) => {
-                return new Date(b.effective_on) - new Date(a.effective_on);
-              };
-              return rules.results.sort(by_effective_on);
+              return rules.results;
           }
       }
   };
@@ -810,14 +807,19 @@
       }
   }
 
-  function isElementInViewport (el) {
+  function isElementInViewport(el) {
       var rect = el.getBoundingClientRect();
 
       return (
           rect.top >= 0 &&
           rect.left >= 0 &&
-          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /* or $(window).height() */
-          rect.right <= (window.innerWidth || document.documentElement.clientWidth) /* or $(window).width() */
+          rect.bottom <=
+              (window.innerHeight ||
+                  document.documentElement
+                      .clientHeight) /* or $(window).height() */ &&
+          rect.right <=
+              (window.innerWidth ||
+                  document.documentElement.clientWidth) /* or $(window).width() */
       );
   }
 
@@ -847,12 +849,28 @@
       }
   }
 
+  // left sidebar defaults to collapsed on screens
+  // narrower than 1024px
+  const setResponsiveState = el => {
+      if (
+          el.dataset.stateName === "left-sidebar" &&
+          el.dataset.state === "expanded" &&
+          window.innerWidth < 1024
+      ) {
+          el.setAttribute("data-state", "collapsed");
+      }
+  };
+
   function makeStateful(el) {
       const state_change_target = el.getAttribute("data-state-name");
-      const state_change_buttons = document.querySelectorAll(`[data-set-state][data-state-name='${state_change_target}']`);
+      const state_change_buttons = document.querySelectorAll(
+          `[data-set-state][data-state-name='${state_change_target}']`
+      );
+
+      setResponsiveState(el);
 
       for (const state_change_button of state_change_buttons) {
-          state_change_button.addEventListener('click', function() {
+          state_change_button.addEventListener("click", function () {
               const state = this.getAttribute("data-set-state");
               el.setAttribute("data-state", state);
           });
@@ -861,23 +879,22 @@
 
   function viewButtonClose() {
       const viewButton = document.querySelector("#view-button");
-      if(!viewButton) {
+      if (!viewButton) {
           return;
       }
-      viewButton.addEventListener("click", function() {
-          if(this.getAttribute("data-state") === "show") {
-            this.setAttribute("data-set-state", "close"); 
+      viewButton.addEventListener("click", function () {
+          if (this.getAttribute("data-state") === "show") {
+              this.setAttribute("data-set-state", "close");
           }
 
-          if(this.getAttribute("data-state") === "close") {
-            const closeLink = document.querySelector('#close-link');
-            closeLink.click();
+          if (this.getAttribute("data-state") === "close") {
+              const closeLink = document.querySelector("#close-link");
+              closeLink.click();
           }
       });
   }
 
   function makeSticky(el) {
-
       // Sticky header
 
       if (!el) {
@@ -888,11 +905,11 @@
 
       function stickyHeader() {
           if (window.pageYOffset > sticky) {
-            el.classList.add("sticky");
+              el.classList.add("sticky");
           } else {
-            el.classList.remove("sticky");
+              el.classList.remove("sticky");
           }
-      } 
+      }
 
       window.addEventListener("scroll", stickyHeader);
   }
@@ -903,7 +920,7 @@
               RelatedRules: __vue_component__$3,
               Collapsible: __vue_component__$1,
               CollapseButton: __vue_component__,
-          }
+          },
       }).$mount("#vue-app");
 
       const stateful_elements = document.querySelectorAll("[data-state]");
@@ -918,9 +935,9 @@
       activateTOCLink();
 
       let reset_button = document.getElementById("search-reset");
-      if(reset_button) {
+      if (reset_button) {
           reset_button.addEventListener("click", (event) => {
-              document.getElementById("search-field").value = '';
+              document.getElementById("search-field").value = "";
               event.preventDefault();
           });
       }
