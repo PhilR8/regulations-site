@@ -19,7 +19,6 @@ aside.left-sidebar {
     transition: flex-basis 0.25s ease-out;
 
     // Entire Sidebar Collapsed
-
     &[data-state="collapsed"] {
         width: 1em;
         padding: 0 1em 1em;
@@ -39,6 +38,7 @@ aside.left-sidebar {
             }
 
             [data-set-state="expanded"] {
+                width: 100%;
                 display: block;
             }
         }
@@ -215,7 +215,7 @@ aside.left-sidebar {
         text-transform: uppercase;
         font-weight: 600;
         padding: $spacer-2;
-        border-radius: $border_radius;
+        border-radius: 0;
 
         &:hover {
             background: $secondary_link_hover;

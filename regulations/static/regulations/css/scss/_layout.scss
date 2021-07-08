@@ -114,6 +114,20 @@ aside {
         padding: 0 $spacer-4;
     }
 
+    &[data-state="expanded"] {
+        @include custom-max($tablet-max / 1px) {
+            flex: 0 0 400px;
+        }
+
+        & + .match-middle {
+            @include custom-max($tablet-max / 1px) {
+                margin-left: calc(
+                    (308px + #{$collapsed-sidebar-width}) * (-1)
+                );
+            }
+        }
+    }
+
     &[data-state="collapsed"] + .match-middle {
         width: calc(100% - 260px - #{$collapsed-sidebar-width});
 

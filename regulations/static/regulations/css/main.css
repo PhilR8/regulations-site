@@ -13609,6 +13609,16 @@ aside.right-sidebar {
 aside + .match-middle {
   padding: 0 32px;
 }
+@media (max-width: 1023px) {
+  aside[data-state=expanded] {
+    flex: 0 0 400px;
+  }
+}
+@media (max-width: 1023px) {
+  aside[data-state=expanded] + .match-middle {
+    margin-left: calc( (308px + 32px) * (-1) );
+  }
+}
 aside[data-state=collapsed] + .match-middle {
   width: calc(100% - 260px - 32px);
 }
@@ -14474,6 +14484,7 @@ aside.left-sidebar[data-state=collapsed] div.toc-controls [data-set-state=collap
   display: none;
 }
 aside.left-sidebar[data-state=collapsed] div.toc-controls [data-set-state=expanded] {
+  width: 100%;
   display: block;
 }
 aside.left-sidebar[data-state=collapsed] ul li.subtoc.active {
@@ -14605,7 +14616,7 @@ aside.left-sidebar li.active ul a.menu-section:hover {
   text-transform: uppercase;
   font-weight: 600;
   padding: 16px;
-  border-radius: 3px;
+  border-radius: 0;
 }
 .toc-controls button:hover {
   background: #046791;
