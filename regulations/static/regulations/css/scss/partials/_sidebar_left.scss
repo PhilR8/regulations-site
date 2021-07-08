@@ -16,6 +16,7 @@ aside.left-sidebar {
     overflow-y: scroll;
     position: sticky;
     top: 0;
+    z-index: 1;
     transition: flex-basis 0.25s ease-out;
 
     // Entire Sidebar Collapsed

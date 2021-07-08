@@ -162,6 +162,12 @@ $width-3xl: 1920px; // The largest the site container will get
     }
 }
 
+@mixin custom-range($screen-start, $screen-end) {
+    @media (min-width: $screen-start+"px") and (max-width: $screen-end+"px") {
+        @content;
+    }
+}
+
 //--------------------------
 // Transitions
 //--------------------------

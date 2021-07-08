@@ -70,26 +70,6 @@ body {
     }
 }
 
-//.match-middle {
-//display: table-cell;
-//width: calc(100% - 520px);
-//padding: 0 $spacer-4;
-
-//@include screen-lg {
-//width: calc(100% - 600px);
-//}
-
-//@include screen-xl {
-//width: calc(100% - 700px);
-//padding: 0 $spacer-4;
-//}
-
-//@include screen-3xl {
-//width: calc(100% - 1000px);
-//padding: 0 $spacer-6;
-//}
-//}
-
 main {
     display: table-cell;
 }
@@ -108,6 +88,10 @@ aside {
         @include screen-xl {
             padding: $spacer-2 $spacer-4;
         }
+
+        @include custom-max($tablet-max / 1px) {
+            display: none;
+        }
     }
 
     & + .match-middle {
@@ -115,33 +99,41 @@ aside {
     }
 
     &[data-state="expanded"] {
-        @include custom-max($tablet-max / 1px) {
+        @include custom-max($mobile-max / 1px) {
+            flex: 0 0 100%;
+        }
+
+        @include custom-range($width-md / 1px, $tablet-max / 1px) {
             flex: 0 0 400px;
         }
 
         & + .match-middle {
             @include custom-max($tablet-max / 1px) {
-                margin-left: calc(
-                    (308px + #{$collapsed-sidebar-width}) * (-1)
-                );
+                margin-left: calc((308px + #{$collapsed-sidebar-width}) * (-1));
             }
         }
     }
 
-    &[data-state="collapsed"] + .match-middle {
-        width: calc(100% - 260px - #{$collapsed-sidebar-width});
+    &[data-state="collapsed"] {
+        & + .match-middle {
+            width: 100%;
 
-        @include screen-lg {
-            width: calc(100% - 300px - #{$collapsed-sidebar-width});
-        }
+            @include screen-md {
+                width: calc(100% - 260px - #{$collapsed-sidebar-width});
+            }
 
-        @include screen-xl {
-            width: calc(100% - 400px - #{$collapsed-sidebar-width});
-            padding: 0 $spacer-6;
-        }
+            @include screen-lg {
+                width: calc(100% - 300px - #{$collapsed-sidebar-width});
+            }
 
-        @include screen-3xl {
-            width: calc(100% - 500px - #{$collapsed-sidebar-width});
+            @include screen-xl {
+                width: calc(100% - 400px - #{$collapsed-sidebar-width});
+                padding: 0 $spacer-6;
+            }
+
+            @include screen-3xl {
+                width: calc(100% - 500px - #{$collapsed-sidebar-width});
+            }
         }
     }
 }

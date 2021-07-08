@@ -13606,21 +13606,36 @@ aside.right-sidebar {
     padding: 16px 32px;
   }
 }
+@media (max-width: 1023px) {
+  aside.right-sidebar {
+    display: none;
+  }
+}
 aside + .match-middle {
   padding: 0 32px;
 }
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
+  aside[data-state=expanded] {
+    flex: 0 0 100%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
   aside[data-state=expanded] {
     flex: 0 0 400px;
   }
 }
 @media (max-width: 1023px) {
   aside[data-state=expanded] + .match-middle {
-    margin-left: calc( (308px + 32px) * (-1) );
+    margin-left: calc((308px + 32px) * (-1));
   }
 }
 aside[data-state=collapsed] + .match-middle {
-  width: calc(100% - 260px - 32px);
+  width: 100%;
+}
+@media (min-width: 768px) {
+  aside[data-state=collapsed] + .match-middle {
+    width: calc(100% - 260px - 32px);
+  }
 }
 @media (min-width: 1024px) {
   aside[data-state=collapsed] + .match-middle {
@@ -14466,6 +14481,7 @@ aside.left-sidebar {
   overflow-y: scroll;
   position: sticky;
   top: 0;
+  z-index: 1;
   transition: flex-basis 0.25s ease-out;
 }
 aside.left-sidebar[data-state=collapsed] {
