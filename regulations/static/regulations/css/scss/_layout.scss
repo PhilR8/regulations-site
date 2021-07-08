@@ -71,23 +71,23 @@ body {
 }
 
 //.match-middle {
-    //display: table-cell;
-    //width: calc(100% - 520px);
-    //padding: 0 $spacer-4;
+//display: table-cell;
+//width: calc(100% - 520px);
+//padding: 0 $spacer-4;
 
-    //@include screen-lg {
-        //width: calc(100% - 600px);
-    //}
+//@include screen-lg {
+//width: calc(100% - 600px);
+//}
 
-    //@include screen-xl {
-        //width: calc(100% - 700px);
-        //padding: 0 $spacer-4;
-    //}
+//@include screen-xl {
+//width: calc(100% - 700px);
+//padding: 0 $spacer-4;
+//}
 
-    //@include screen-3xl {
-        //width: calc(100% - 1000px);
-        //padding: 0 $spacer-6;
-    //}
+//@include screen-3xl {
+//width: calc(100% - 1000px);
+//padding: 0 $spacer-6;
+//}
 //}
 
 main {
@@ -110,9 +110,12 @@ aside {
         }
     }
 
+    & + .match-middle {
+        padding: 0 $spacer-4;
+    }
+
     &[data-state="collapsed"] + .match-middle {
         width: calc(100% - 260px - #{$collapsed-sidebar-width});
-        padding: 0 $spacer-4;
 
         @include screen-lg {
             width: calc(100% - 300px - #{$collapsed-sidebar-width});
