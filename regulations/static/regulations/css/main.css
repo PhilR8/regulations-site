@@ -13579,12 +13579,12 @@ body {
 }
 @media (min-width: 1280px) {
   .match-sides {
-    flex: 0 0 400px;
+    flex: 0 0 325px;
   }
 }
 @media (min-width: 1920px) {
   .match-sides {
-    flex: 0 0 500px;
+    flex: 0 0 350px;
   }
 }
 

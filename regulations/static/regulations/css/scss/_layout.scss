@@ -62,11 +62,11 @@ body {
     }
 
     @include screen-xl {
-        flex: 0 0 400px;
+        flex: 0 0 325px;
     }
 
     @include screen-3xl {
-        flex: 0 0 500px;
+        flex: 0 0 350px;
     }
 }
 
