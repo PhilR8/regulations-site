@@ -818,6 +818,8 @@
       }
   }
 
+  yn.config.devtools = true;
+
   function isElementInViewport(el) {
       var rect = el.getBoundingClientRect();
 

@@ -4,6 +4,8 @@ import CollapseButton from "./CollapseButton.js";
 import Vue from "../../node_modules/vue/dist/vue.esm.browser.min.js";
 import { goToVersion } from "./go-to-version.js";
 
+Vue.config.devtools = true;
+
 function isElementInViewport(el) {
     var rect = el.getBoundingClientRect();
 
