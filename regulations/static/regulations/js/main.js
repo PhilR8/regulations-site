@@ -48,7 +48,7 @@ function activateTOCLink() {
 
 // left sidebar defaults to collapsed on screens
 // narrower than 1024px
-const setResponsiveState = el => {
+const setResponsiveState = (el) => {
     if (
         el.dataset.stateName === "left-sidebar" &&
         el.dataset.state === "expanded" &&
@@ -56,7 +56,7 @@ const setResponsiveState = el => {
     ) {
         el.setAttribute("data-state", "collapsed");
     }
-}
+};
 
 function makeStateful(el) {
     const state_change_target = el.getAttribute("data-state-name");
@@ -64,7 +64,7 @@ function makeStateful(el) {
         `[data-set-state][data-state-name='${state_change_target}']`
     );
 
-    setResponsiveState(el)
+    setResponsiveState(el);
 
     for (const state_change_button of state_change_buttons) {
         state_change_button.addEventListener("click", function () {
