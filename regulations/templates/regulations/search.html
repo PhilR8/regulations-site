@@ -8,7 +8,7 @@
         <div class="flexbox search-page">
 
             <aside class="left-sidebar match-sides" data-state="collapsed" data-state-name="left-sidebar">
-                {% include "regulations/partials/sidebar_left.html" %}
+                {% include "regulations/partials/sidebar_left/title.html" %}
             </aside>
 
             <main class="match-middle">
@@ -27,10 +27,10 @@
 
                     <form class="search-box" action="{% url 'search' %}">
                         <input id="search-field" type="text" name="q" placeholder="Search Regulations" value="{{ q }}"></input>
-                        <button type="button" class="search-reset" id="search-reset">
+                        <button type="button" class="search-reset" id="search-reset" aria-label="Reset search query">
                             <i class="fa fa-times"></i>
                         </button>
-                        <button type="submit" class="search-submit">
+                        <button type="submit" class="search-submit" aria-label="Submit a search">
                             <i class="fa fa-search"></i>
                         </button>
                     </form>
@@ -57,7 +57,7 @@
                 <p>Search the entirety of Title 42, including other subchapters, in a different reg tool</p>
             </aside>
         </div>
-    </div>    
+    </div>
 {% endblock %}
 
 {% block post_footer %}
