@@ -20,9 +20,6 @@ var script = {
 
     mounted: function () {
         window.addEventListener("resize", this.resize);
-        this.$nextTick(() => {
-            this.computeSize();
-        });
     },
 
     destroyed: function () {
@@ -85,24 +82,31 @@ var script = {
                 });
             }
         },
+        getStyle: function () {
+            return window.getComputedStyle(this.$refs.target);
+        },
+        setProps: function (visibility, display, position, size) {
+            this.$refs.target.style.visibility = visibility;
+            this.$refs.target.style.display = display;
+            this.$refs.target.style.position = position;
+            if (this.isVertical) {
+                this.$refs.target.style.height = size;
+            } else {
+                this.$refs.target.style.width = size;
+            }
+        },
         computeSize: function () {
-            let setProps = (visibility, display, position, size) => {
-                this.$refs.target.style.visibility = visibility;
-                this.$refs.target.style.display = display;
-                this.$refs.target.style.position = position;
-                if (this.isVertical) {
-                    this.$refs.target.style.height = size;
-                } else {
-                    this.$refs.target.style.width = size;
-                }
-            };
-            let getStyle = () => {
-                return window.getComputedStyle(this.$refs.target);
-            };
+            const prevSize = this.isVertical
+                ? this.getStyle().height
+                : this.getStyle().width;
 
-            setProps("hidden", "block", "absolute", "auto");
-            this.size = this.isVertical ? getStyle().height : getStyle().width;
-            setProps(null, null, null, 0);
+            this.setProps("hidden", "block", "absolute", "auto");
+
+            this.size = this.isVertical
+                ? this.getStyle().height
+                : this.getStyle().width;
+
+            this.setProps(null, null, null, prevSize);
         },
     },
 };
